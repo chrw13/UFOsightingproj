@@ -1,0 +1,11 @@
+library(rpart)
+library(rpart.plot)
+ufousa <- read.csv("C:/Users/sguru/Downloads/Datasets/UFO_usaonly.csv")
+View(ufousa)
+str(ufousa)
+ufousa$shape <- as.numeric(ufousa$shape)
+ufousa$duration..seconds. <- as.numeric(ufousa$duration..seconds.)
+str(ufousa)
+model <- lm(shape ~ duration..seconds. + latitude + longitude, data = ufousa)
+summary(model)
+model
